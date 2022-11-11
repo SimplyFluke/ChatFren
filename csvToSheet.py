@@ -43,5 +43,4 @@ def upload_CSV(recipient, full_path, filename):
     set_column_widths(sh.sheet1,[('A', 60), ('B', 60), ('C', 230), ('D', 66), ('E', 122)]) #  Set width according to TIP-site
 
 # Run with command line args
-print(sys.argv)
 upload_CSV(sys.argv[1], sys.argv[2], sys.argv[3])
