@@ -13,6 +13,7 @@ Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName PresentationFramework
 [reflection.assembly]::loadwithpartialname('System.Drawing')
 
+
 Function CSV_Uploader_Form(){
     $get_Email = whoami /upn
 
@@ -120,23 +121,30 @@ Function CSV_Uploader_Form(){
         if ($msgBox -eq "Yes"){
             pip install gspread
             pip install gspread_formatting
+        } else {
+            return
         }
     } 
     ElseIf ($null -eq $gSpread){
         $msgBox = [System.Windows.MessageBox]::Show('Installer manglende Python-modul: gspread','CSV Uploader','YesNo','Error')
         if ($msgBox -eq "Yes"){
             pip install gspread
+        } else {
+            return
         }
     } 
     ElseIf ($null -eq $formatting){
         $msgBox = [System.Windows.MessageBox]::Show('Installer manglende Python-modul: gspread_formatting','CSV Uploader','YesNo','Error')
         if ($msgBox -eq "Yes"){
             pip install gspread_formatting
+        } else {
+            return
         }
     }
 
     $CSV_form.ShowDialog()
 }
+
 
 Hide-Powershell
 CSV_Uploader_Form
