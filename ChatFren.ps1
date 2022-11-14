@@ -1,4 +1,4 @@
-﻿# Hashtable containing wanted output
+# Hashtable containing wanted output
 $outputHash = @{
 "Passord Azure" = "-Skriv epost adresse først`r`n-Velg 'Glemt passord'`r`n-Skriv Telefonnummer deretter`r`n-Skriv inn kode du mottar på SMS`r`n-Lag deg et passord`r`n-Minimum 8 tegn (Store/små bokstaver og tall)`r`n-Ingen spesialtegn eller æøå.`r`n`r`nhttps://passwordreset.microsoftonline.com/";
 "Chat - Ingen svar" = "Samtalen lukkes da vi ikke får noe respons tilbake. `r`nHvis du har flere spørsmål kan du benytte Selvbetjeningsportalen, nettprat eller ringe inn til IT-brukerhjelp :-) `r`nHa en fin dag!";
@@ -13,6 +13,9 @@ $outputHash = @{
 "KB - Tilbakestille Chrome" = "https://trondheim.service-now.com/tk?id=kb_article_view&sysparm_article=KB0011607";
 "KB - TK-Nett Android" = "https://trondheim.service-now.com/tk?id=kb_article_view&sys_kb_id=8931031e4fde17802c8244f18110c7f3";
 "KB - TK-Nett iPhone" = "https://trondheim.service-now.com/tk?id=kb_article_view&sys_kb_id=f3afe4b21b420018a32edc27bd4bcb67";
+"Chromebook - Tar ikke lading" = "- Sjekk at lader fungerer på en annen Chromebook`r`n- Forsøk med en annen lader. Gjerne to samtidig.`r`n- La lader stå tilkoblet i 24 timer";
+"Chromebook - Nettverk / Bruker" = "- Forsøk å slett lokal brukerprofil. Dette gjøres på pila ved siden av navnet til eleven/den ansatte.`r`n- Dersom dette ikke fungerer, må powerwash forsøkes"
+"Chromebook - Svart skjerm" = "Chromebook må kobles opp mot en ekstern skjerm. Dersom bilde kommer opp, forsøk en powerwash (tilbakestilling).`r`n- Trykk ned tastene CTRL + SHIFT + ALT + R samtidig.`r`n- Velg Restart`r`n- Når Chromebook starter på nytt, velg Powerwash og deretter Continue `r`n- Etter ny omstart, velg Get Started`r`n- Velg TK-gjestenett og trykk Next`r`n- Trykk på Accept and continue "
 }
 
 # Hashtable containing for hyperlinks in SN notes
@@ -96,12 +99,13 @@ function Create_Form_Chatfren(){
     $ComboBox.AutoCompleteMode = 'Append'
     $ComboBox.AutoCompleteSource = 'ListItems'
     $ComboBox.MaxDropDownItems = 25
+    $ComboBox.Sorted = $true
     $chatFren_form.Controls.Add($ComboBox)
 
     # Add options to ComboBox
     $options = ('Chat - Ingen svar','Henvisning Helsesupport', 'Passord Azure', 'Automatisk Reparasjon',
                     'Henvisning ID-Kontoret','Henvisning ESA', 'Citrix - Flere skjermer', 'Guide - PXE Boot', "Strømfiks", 
-                    "Google-dokumenter forsvinner", "KB - Tilbakestille Chrome", "KB - TK-Nett Android", "KB - TK-Nett iPhone")
+                    "Google-dokumenter forsvinner", "Chromebook - Svart skjerm", "Chromebook - Nettverk / Bruker", "Chromebook - Tar ikke lading", "KB - Tilbakestille Chrome", "KB - TK-Nett Android", "KB - TK-Nett iPhone")
 
     $ComboBox.Items.AddRange($options)
 
@@ -137,6 +141,10 @@ function Create_Form_Chatfren(){
 
     # Copy selection on button click
     $Button.Add_Click({
+        If ($null -eq $selectedItem){
+            return
+        }
+        
         If ($checkBox.Checked -eq $true){
         # Check if key exists in case SN Note is checked by accident
             
