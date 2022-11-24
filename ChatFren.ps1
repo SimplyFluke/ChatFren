@@ -14,10 +14,11 @@ $outputHash = @{
 "KB - TK-Nett Android" = "https://trondheim.service-now.com/tk?id=kb_article_view&sys_kb_id=8931031e4fde17802c8244f18110c7f3";
 "KB - TK-Nett iPhone" = "https://trondheim.service-now.com/tk?id=kb_article_view&sys_kb_id=f3afe4b21b420018a32edc27bd4bcb67";
 "KB - TKsak Chrome-tillegg (ou)" = "https://trondheim.service-now.com/tk?sys_kb_id=697188821b93d510170aa9b3b24bcbd5&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=ab4448821bd3d510170aa9b3b24bcb16";
-"KB - TKsak Chrome-tillegg" = "https://trondheim.service-now.com/tk?sys_kb_id=5dd8fb711b13d510170aa9b3b24bcbfe&id=kb_article_view&sysparm_rank=2&sysparm_tsqueryId=ab4448821bd3d510170aa9b3b24bcb16"
+"KB - TKsak Chrome-tillegg" = "https://trondheim.service-now.com/tk?sys_kb_id=5dd8fb711b13d510170aa9b3b24bcbfe&id=kb_article_view&sysparm_rank=2&sysparm_tsqueryId=ab4448821bd3d510170aa9b3b24bcb16";
+"KB - Aktivere 2-trinns" = "https://trondheim.service-now.com/tk?id=kb_article&sys_id=e508ed661b9f9d10dfcd64e0b24bcb74&table=kb_knowledge";
 "Chromebook - Tar ikke lading" = "- Sjekk at lader fungerer på en annen Chromebook`r`n- Forsøk med en annen lader. Gjerne to samtidig.`r`n- La lader stå tilkoblet i 24 timer";
-"Chromebook - Nettverk / Bruker" = "- Forsøk å slett lokal brukerprofil. Dette gjøres på pila ved siden av navnet til eleven/den ansatte.`r`n- Dersom dette ikke fungerer, må powerwash forsøkes"
-"Chromebook - Svart skjerm" = "Chromebook må kobles opp mot en ekstern skjerm. Dersom bilde kommer opp, forsøk en powerwash (tilbakestilling).`r`n- Trykk ned tastene CTRL + SHIFT + ALT + R samtidig når innloggingsskjerm er oppe.`r`n- Velg Restart`r`n- Når Chromebook starter på nytt, velg Powerwash og deretter Continue `r`n- Etter ny omstart, velg Get Started`r`n- Velg TK-gjestenett og trykk Next`r`n- Trykk på Accept and continue "
+"Chromebook - Nettverk / Bruker" = "- Forsøk å slett lokal brukerprofil. Dette gjøres på pila ved siden av navnet til eleven/den ansatte.`r`n- Dersom dette ikke fungerer, må powerwash forsøkes";
+"Chromebook - Svart skjerm" = "Chromebook må kobles opp mot en ekstern skjerm. Dersom bilde kommer opp, forsøk en powerwash (tilbakestilling).`r`n- Trykk ned tastene CTRL + SHIFT + ALT + R samtidig når innloggingsskjerm er oppe.`r`n- Velg Restart`r`n- Når Chromebook starter på nytt, velg Powerwash og deretter Continue `r`n- Etter ny omstart, velg Get Started`r`n- Velg TK-gjestenett og trykk Next`r`n- Trykk på Accept and continue ";
 "Omnigo Innlogging Spinner" = "- Pass på at 'Bruk Skytjenesten' ikke er valgt.`r`n- Er Cisco AnyConnect koblet til? (Indikeres med en nøkkel oppe i høyre hjørne ved klokken)`r`n- Er telefonen i flymodus? (Indikeres med et fly oppe i høyre hjørne ved klokken)";
 }
 
@@ -29,6 +30,7 @@ $snHash = @{
 "KB - Tilbakestille Chrome" = '[code]<a href="https://trondheim.service-now.com/tk?id=kb_article_view&sysparm_article=KB0011607" target="_blank">KB0011607: Chrome - hvordan tilbakestille nettleser </a>[/code]';
 "KB - TKsak Chrome-tillegg (ou)" = '[code]<a href="https://trondheim.service-now.com/tk?sys_kb_id=697188821b93d510170aa9b3b24bcbd5&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=ab4448821bd3d510170aa9b3b24bcb16" target="_blank">Chrome-tillegg for TKsak - ou</a>[/code]';
 "KB - TKsak Chrome-tillegg" = '[code]<a href="https://trondheim.service-now.com/tk?sys_kb_id=5dd8fb711b13d510170aa9b3b24bcbfe&id=kb_article_view&sysparm_rank=2&sysparm_tsqueryId=ab4448821bd3d510170aa9b3b24bcb16" target="_blank">Chrome-tillegg for TKsak</a>[/code]';
+"KB - Aktivere 2-trinns" = '[code]<a href="https://trondheim.service-now.com/tk?id=kb_article&sys_id=e508ed661b9f9d10dfcd64e0b24bcb74&table=kb_knowledge" target="_blank">KB: Aktivere 2-trinns</a>[/code]';
 "Guide - PXE Boot" = '[code]<a href="https://docs.google.com/document/d/1LpRE7uEKBZCP1QlzNDFlGHK8C4qoj5DIxrO2IAYe_zc/edit#" target="_blank">Guide: PXE Boot</a>[/code]';
 }
 
@@ -110,8 +112,10 @@ function Create_Form_Chatfren(){
 
     # Add options to ComboBox
     $options = ('Chat - Ingen svar','Henvisning Helsesupport', 'Passord Azure', 'Automatisk Reparasjon', "Omnigo Innlogging Spinner",
-                    'Henvisning ID-Kontoret','Henvisning ESA', 'Citrix - Flere skjermer', 'Guide - PXE Boot', "Strømfiks", "KB - TKsak Chrome-tillegg", "KB - TKsak Chrome-tillegg (ou)",
-                    "Google-dokumenter forsvinner", "Chromebook - Svart skjerm", "Chromebook - Nettverk / Bruker", "Chromebook - Tar ikke lading", "KB - Tilbakestille Chrome", "KB - TK-Nett Android", "KB - TK-Nett iPhone")
+                    'Henvisning ID-Kontoret','Henvisning ESA', 'Citrix - Flere skjermer', 'Guide - PXE Boot', "Strømfiks", 
+                    "KB - TKsak Chrome-tillegg", "KB - TKsak Chrome-tillegg (ou)", "Google-dokumenter forsvinner", "Chromebook - Svart skjerm", 
+                    "Chromebook - Nettverk / Bruker", "Chromebook - Tar ikke lading", "KB - Tilbakestille Chrome", "KB - TK-Nett Android", "KB - TK-Nett iPhone",
+                    "KB - Aktivere 2-trinns")
 
     $ComboBox.Items.AddRange($options)
 
@@ -220,3 +224,4 @@ $systray_icon.ContextMenu.MenuItems.AddRange($systray_exit)
 
 Hide-Powershell
 Create_Form_Chatfren
+
